@@ -6,14 +6,9 @@ head:
 ---
 
 
-::: danger
-This is an example GitHub Pages site and is NOT intended for actual use in real projects/products!
-:::
+# @obewds/vue-tw-el
 
-
-# @obewds/vite-vue-ts-compo-pkg-starter
-
-Welcome to the docs page for OBE:WDS's `ViteVueTsCompoPkgStarter.vue` component for [Vue.js](https://vuejs.org/)!
+Welcome to the docs page for OBE:WDS's `VueTwEl.vue` component for [Vue.js](https://vuejs.org/)!
 
 
 
@@ -21,13 +16,41 @@ Welcome to the docs page for OBE:WDS's `ViteVueTsCompoPkgStarter.vue` component 
 ## Installation
 
 ```bash
-npm install @obewds/vite-vue-ts-compo-pkg-starter --save-dev
+npm install @obewds/vue-tw-el --save-dev
 ```
 
 
 
 
-## Import Component
+## Tailwind CSS Integration
+
+This component is dependent on Tailwind CSS and the [@obewds/obewds-tw-config](https://obewds.github.io/obewds-tw-config) package that drives a lot of the features of this component. So you'll want to be sure you have the most recent version of the [@obewds/obewds-tw-config](https://obewds.github.io/obewds-tw-config) package when getting started and first bringing this compoent into a project.
+
+
+::: warning IS IT INSTALLED???
+The [@obewds/obewds-tw-config](https://obewds.github.io/obewds-tw-config) package is installed if you have an `obewds.tw.config.json` file in your root directory! However, you can also safely run the [@obewds/obewds-tw-config](https://obewds.github.io/obewds-tw-config) package's [update command](https://obewds.github.io/obewds-tw-config/#updating-config-versions), which will install a fresh default file if one is not found in your project root!
+
+So if it's installed, you'll want to [Update Your Config File](https://obewds.github.io/obewds-tw-config/#updating-config-versions).
+
+If it's not installed, then you'll want to [Install the Config File](https://obewds.github.io/obewds-tw-config/#config-file-installation).
+:::
+
+Don't forget, you'll also want to ensure you've:
+
+* Handled your [Tailwind Config Setup](https://obewds.github.io/obewds-tw-config/#tailwind-config-setup) for the `@obewds/obewds-tw-config` package
+* Ensured you've included your new `obewds.tw.config.json` file into your current app's global context
+
+::: info IN-APP CONTEXTS
+Dealing with the `obewds.tw.config.json` file is detailed in the [App Config Setup](https://obewds.github.io/obewds-tw-config/#app-config-setup) section of the `@obewds/obewds-tw-config` package docs.
+:::
+
+
+
+
+
+
+
+## Importing
 
 
 
@@ -36,7 +59,7 @@ npm install @obewds/vite-vue-ts-compo-pkg-starter --save-dev
 
 ```html{2}
 <template>
-    <ViteVueTsCompoPkgStarter/>
+    <VueTwEl tag="..."/>
 </template>
 ```
 
@@ -47,7 +70,7 @@ npm install @obewds/vite-vue-ts-compo-pkg-starter --save-dev
 
 ```html{2}
 <script setup lang="ts">
-    import { ViteVueTsCompoPkgStarter } from '@obewds/vite-vue-ts-compo-pkg-starter'
+    import { VueTwEl } from '@obewds/vue-tw-el'
 </script>
 ```
 
@@ -59,10 +82,10 @@ npm install @obewds/vite-vue-ts-compo-pkg-starter --save-dev
 ```html{3,6}
 <script lang="ts">
     import { defineComponent } from 'vue'
-    import { ViteVueTsCompoPkgStarter } from '@obewds/vite-vue-ts-compo-pkg-starter'
+    import { VueTwEl } from '@obewds/vue-tw-el'
 
     export default defineComponent({
-        components: { ViteVueTsCompoPkgStarter }
+        components: { VueTwEl }
     })
 </script>
 ```
@@ -72,59 +95,113 @@ npm install @obewds/vite-vue-ts-compo-pkg-starter --save-dev
 
 ## Props
 
+### bgPalette
 
-
-
-### text
-
-:white_check_mark: - Type `String`  
-:x: - Not Required  
-:x: - Doesn't Validate
-
+:white_check_mark: Type `String`  
+:x: Not Required  
+:white_check_mark: Validates
 
 ```html{2}
 <template>
-    <ViteVueTsCompoPkgStarter text="My text prop string"/>
+    <VueTwEl tag="div" bg-palette="default"/>
 </template>
 ```
 
-Outputs:
+<br>
 
-```html
-<div>My text prop string</div>
+### bgColor
+
+:white_check_mark: Type `String`  
+:x: Not Required  
+:white_check_mark: Validates
+
+```html{2}
+<template>
+    <VueTwEl tag="div" bg-color="default"/>
+</template>
 ```
 
-::: warning
-If both the `text` prop and `slot` content are used, then the `text` prop takes precidence and the `slot` content will **NOT** render!
-:::
+<br>
+
+### borderPalette
+
+:white_check_mark: Type `String`  
+:x: Not Required  
+:white_check_mark: Validates
+
+```html{2}
+<template>
+    <VueTwEl tag="div" border-palette="default"/>
+</template>
+```
+
+<br>
+
+### borderColor
+
+:white_check_mark: Type `String`  
+:x: Not Required  
+:white_check_mark: Validates
+
+```html{2}
+<template>
+    <VueTwEl tag="div" border-color="default"/>
+</template>
+```
+
+<br>
+
+### tag
+
+Detailed in the [@obewds/vue-el](https://obewds.github.io/vue-el/#tag) docs.
+
+<br>
+
+### text
+
+Detailed in the [@obewds/vue-el](https://obewds.github.io/vue-el/#text) docs.
+
+<br>
+
+### textPalette
+
+:white_check_mark: Type `String`  
+:x: Not Required  
+:white_check_mark: Validates
+
+```html{2}
+<template>
+    <VueTwEl tag="div" text-palette="default"/>
+</template>
+```
+
+<br>
+
+### textColor
+
+:white_check_mark: Type `String`  
+:x: Not Required  
+:white_check_mark: Validates
+
+```html{2}
+<template>
+    <VueTwEl tag="div" text-color="default"/>
+</template>
+```
+
+<br>
 
 
 
 
 ## Slots
 
+### #default
 
+Detailed in the [@obewds/vue-el](https://obewds.github.io/vue-el/#default) docs.
 
+<br>
 
-### default
-
-```html{2-4}
-<template>
-    <ViteVueTsCompoPkgStarter>
-        My slot content
-    </ViteVueTsCompoPkgStarter>
-</template>
-```
-
-Outputs:
-
-```html
-<div>My slot content</div>
-```
-
-::: danger
-If both the `text` prop and `slot` content are used, then the `text` prop takes precidence and the `slot` content will **NOT** render!
-:::
 
 
 
@@ -132,7 +209,7 @@ If both the `text` prop and `slot` content are used, then the `text` prop takes 
 ## Uninstall
 
 ```bash
-npm uninstall @obewds/vite-vue-ts-compo-pkg-starter
+npm uninstall @obewds/vue-tw-el
 ```
 
 
