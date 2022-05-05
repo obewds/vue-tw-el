@@ -1,4 +1,28 @@
 import { defineComponent, openBlock, createElementBlock, Fragment, createBlock, resolveDynamicComponent, withCtx, createTextVNode, toDisplayString, renderSlot, inject, computed, unref, normalizeClass } from "vue";
+function getBgPaletteColor(config, palette, color) {
+  var _a, _b, _c, _d;
+  if (config && ((_d = (_c = (_b = (_a = config == null ? void 0 : config.bg) == null ? void 0 : _a.palettes) == null ? void 0 : _b[palette]) == null ? void 0 : _c.colors) == null ? void 0 : _d[color])) {
+    return config.bg.palettes[palette].colors[color];
+  } else {
+    return "";
+  }
+}
+function getBorderPaletteColor(config, palette, color) {
+  var _a, _b, _c, _d;
+  if (config && ((_d = (_c = (_b = (_a = config == null ? void 0 : config.border) == null ? void 0 : _a.palettes) == null ? void 0 : _b[palette]) == null ? void 0 : _c.colors) == null ? void 0 : _d[color])) {
+    return config.border.palettes[palette].colors[color];
+  } else {
+    return "";
+  }
+}
+function getTextPaletteColor(config, palette, color) {
+  var _a, _b, _c, _d;
+  if (config && ((_d = (_c = (_b = (_a = config == null ? void 0 : config.text) == null ? void 0 : _a.palettes) == null ? void 0 : _b[palette]) == null ? void 0 : _c.colors) == null ? void 0 : _d[color])) {
+    return config.text.palettes[palette].colors[color];
+  } else {
+    return "";
+  }
+}
 var elementTags = [
   "style",
   "title",
@@ -182,33 +206,94 @@ var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __propIsEnum = Object.prototype.propertyIsEnumerable;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a2, b) => {
+var __spreadValues = (a, b) => {
   for (var prop in b || (b = {}))
     if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a2, prop, b[prop]);
+      __defNormalProp(a, prop, b[prop]);
   if (__getOwnPropSymbols)
     for (var prop of __getOwnPropSymbols(b)) {
       if (__propIsEnum.call(b, prop))
-        __defNormalProp(a2, prop, b[prop]);
+        __defNormalProp(a, prop, b[prop]);
     }
-  return a2;
+  return a;
 };
-var a = { console: { colors: { default: "text-gray-200 bg-gray-800 bg-opacity-100 dark:bg-black dark:bg-opacity-80", error: "text-rose-200 bg-gray-800 bg-opacity-100 dark:bg-black dark:bg-opacity-80", primary: "text-blue-200 bg-gray-800 bg-opacity-100 dark:bg-black dark:bg-opacity-80", secondary: "text-violet-200 bg-gray-800 bg-opacity-100 dark:bg-black dark:bg-opacity-80", success: "text-green-300 bg-gray-800 bg-opacity-100 dark:bg-black dark:bg-opacity-80", info: "text-cyan-300 bg-gray-800 bg-opacity-100 dark:bg-black dark:bg-opacity-80", caution: "text-amber-300 bg-gray-800 bg-opacity-100 dark:bg-black dark:bg-opacity-80" } } };
-var e$3 = { default: { colors: { default: "", error: "text-white bg-rose-500 dark:bg-rose-600", primary: "text-white bg-blue-500 dark:bg-blue-600", secondary: "text-white bg-violet-500 dark:bg-violet-600", success: "text-white bg-green-500 dark:bg-green-600" } } };
-var e$2 = { monochromatic: { colors: { default: "text-gray-800 bg-gray-200 dark:bg-gray-800 dark:text-gray-200", error: "text-rose-800 bg-rose-200 dark:bg-rose-800 dark:text-rose-200", primary: "text-blue-800 bg-blue-200 dark:bg-blue-800 dark:text-blue-200", secondary: "text-violet-800 bg-violet-200 dark:bg-violet-800 dark:text-violet-200", success: "text-green-800 bg-green-300 dark:bg-green-800 dark:text-green-300", info: "text-cyan-800 bg-cyan-300 dark:bg-cyan-800 dark:text-cyan-300", caution: "text-amber-800 bg-amber-300 dark:bg-amber-800 dark:text-amber-300" } } };
-var e$1 = { pastel: { colors: { default: "text-black bg-gray-100 dark:bg-gray-200", error: "text-black bg-rose-200 dark:bg-rose-300", primary: "text-black bg-blue-200 dark:bg-blue-300", secondary: "text-black bg-violet-200 dark:bg-violet-300", success: "text-black bg-green-300 dark:bg-green-400" } } };
-var r = { default: { colors: { "": "", default: "border-gray-200 dark:border-gray-600", error: "border-rose-600 dark:border-rose-300", primary: "border-blue-600 dark:border-blue-300", secondary: "border-violet-600 dark:border-violet-300", success: "border-green-600 dark:border-green-300" } } };
-var e = { default: { colors: { default: "", error: "text-rose-500 dark:text-rose-300", primary: "text-blue-500 dark:text-blue-300", secondary: "text-violet-500 dark:text-violet-300", success: "text-green-600 dark:text-green-300" } } };
+var twBgPaletteConsole = {
+  "console": {
+    colors: {
+      "default": "text-gray-200 bg-gray-800 bg-opacity-100 dark:bg-black dark:bg-opacity-80",
+      "error": "text-rose-200 bg-gray-800 bg-opacity-100 dark:bg-black dark:bg-opacity-80",
+      "primary": "text-blue-200 bg-gray-800 bg-opacity-100 dark:bg-black dark:bg-opacity-80",
+      "secondary": "text-violet-200 bg-gray-800 bg-opacity-100 dark:bg-black dark:bg-opacity-80",
+      "success": "text-green-300 bg-gray-800 bg-opacity-100 dark:bg-black dark:bg-opacity-80"
+    }
+  }
+};
+var twBgPaletteDefault = {
+  "default": {
+    colors: {
+      "default": "",
+      "error": "text-white bg-rose-500 dark:bg-rose-600",
+      "primary": "text-white bg-blue-500 dark:bg-blue-600",
+      "secondary": "text-white bg-violet-500 dark:bg-violet-600",
+      "success": "text-white bg-green-500 dark:bg-green-600"
+    }
+  }
+};
+var twBgPaletteMonochromatic = {
+  "monochromatic": {
+    colors: {
+      "default": "text-gray-800 bg-gray-200 dark:bg-gray-800 dark:text-gray-200",
+      "error": "text-rose-800 bg-rose-200 dark:bg-rose-800 dark:text-rose-200",
+      "primary": "text-blue-800 bg-blue-200 dark:bg-blue-800 dark:text-blue-200",
+      "secondary": "text-violet-800 bg-violet-200 dark:bg-violet-800 dark:text-violet-200",
+      "success": "text-green-800 bg-green-300 dark:bg-green-800 dark:text-green-300"
+    }
+  }
+};
+var twBgPalettePastel = {
+  "pastel": {
+    colors: {
+      "default": "text-black bg-gray-100 dark:bg-gray-200",
+      "error": "text-black bg-rose-200 dark:bg-rose-300",
+      "primary": "text-black bg-blue-200 dark:bg-blue-300",
+      "secondary": "text-black bg-violet-200 dark:bg-violet-300",
+      "success": "text-black bg-green-300 dark:bg-green-400"
+    }
+  }
+};
+var twBorderPaletteDefault = {
+  "default": {
+    colors: {
+      "": "",
+      "default": "border-gray-200 dark:border-gray-600",
+      "error": "border-rose-600 dark:border-rose-300",
+      "primary": "border-blue-600 dark:border-blue-300",
+      "secondary": "border-violet-600 dark:border-violet-300",
+      "success": "border-green-600 dark:border-green-300"
+    }
+  }
+};
+var twTextPaletteDefault = {
+  "default": {
+    colors: {
+      "default": "",
+      "error": "text-rose-500 dark:text-rose-300",
+      "primary": "text-blue-500 dark:text-blue-300",
+      "secondary": "text-violet-500 dark:text-violet-300",
+      "success": "text-green-600 dark:text-green-300"
+    }
+  }
+};
 let ObewdsTwConfig = {
   "anchor": {},
   "bg": {
-    "palettes": __spreadValues(__spreadValues(__spreadValues(__spreadValues({}, a), e$3), e$2), e$1)
+    "palettes": __spreadValues(__spreadValues(__spreadValues(__spreadValues({}, twBgPaletteConsole), twBgPaletteDefault), twBgPaletteMonochromatic), twBgPalettePastel)
   },
   "border": {
-    "palettes": __spreadValues({}, r)
+    "palettes": __spreadValues({}, twBorderPaletteDefault)
   },
   "text": {
-    "palettes": __spreadValues({}, e)
+    "palettes": __spreadValues({}, twTextPaletteDefault)
   }
 };
 const _sfc_main = /* @__PURE__ */ defineComponent({
@@ -249,19 +334,18 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const props = __props;
     const tw = Object.keys(inject("tw", {})).length > 0 ? inject("tw") : ObewdsTwConfig;
-    let compoClasses = computed(() => {
-      var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l;
-      let output = "";
-      output += tw && ((_d = (_c = (_b = (_a = tw == null ? void 0 : tw.text) == null ? void 0 : _a.palettes) == null ? void 0 : _b[props.textPalette]) == null ? void 0 : _c.colors) == null ? void 0 : _d[props.textColor]) ? tw.text.palettes[props.textPalette].colors[props.textColor] + " " : "";
-      output += tw && ((_h = (_g = (_f = (_e = tw == null ? void 0 : tw.bg) == null ? void 0 : _e.palettes) == null ? void 0 : _f[props.bgPalette]) == null ? void 0 : _g.colors) == null ? void 0 : _h[props.bgColor]) ? tw.bg.palettes[props.bgPalette].colors[props.bgColor] + " " : "";
-      output += tw && ((_l = (_k = (_j = (_i = tw == null ? void 0 : tw.border) == null ? void 0 : _i.palettes) == null ? void 0 : _j[props.borderPalette]) == null ? void 0 : _k.colors) == null ? void 0 : _l[props.borderColor]) ? tw.border.palettes[props.borderPalette].colors[props.borderColor] + " " : "";
-      return output.trim();
+    let colorClasses = computed(() => {
+      let output = [];
+      output.push(getBgPaletteColor(tw, props.bgPalette, props.bgColor));
+      output.push(getBorderPaletteColor(tw, props.borderPalette, props.borderColor));
+      output.push(getTextPaletteColor(tw, props.textPalette, props.textColor));
+      return output.join(" ");
     });
     return (_ctx, _cache) => {
       return openBlock(), createBlock(unref(_sfc_main$1), {
         tag: __props.tag,
         text: __props.text,
-        class: normalizeClass(unref(compoClasses))
+        class: normalizeClass(unref(colorClasses))
       }, {
         default: withCtx(() => [
           renderSlot(_ctx.$slots, "default")

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 	import { computed, inject } from 'vue'
+    import { getBgPaletteColor, getBorderPaletteColor, getTextPaletteColor } from '@obewds/vue-component-helpers'
 	import { VueEl } from '@obewds/vue-el'
     import { ObewdsTwConfig } from '@obewds/obewds-tw-config'
 
@@ -39,24 +40,19 @@
         },
     })
 
-    type ObewdsTwConfigType = typeof ObewdsTwConfig
+    const tw = Object.keys( inject( 'tw', {} ) ).length > 0 ? inject<typeof ObewdsTwConfig>('tw') : ObewdsTwConfig
 
-    const tw = Object.keys(inject('tw', {})).length > 0 ? inject<ObewdsTwConfigType>('tw') : ObewdsTwConfig
+    let colorClasses = computed( () => {
 
-    let compoClasses = computed(() => {
+        let output = []
 
-        let output = ''
+        output.push( getBgPaletteColor( tw, props.bgPalette, props.bgColor ) )
 
-        output += tw && tw?.text?.palettes?.[props.textPalette]?.colors?.[props.textColor] ? 
-                    tw.text.palettes[props.textPalette].colors[props.textColor] + ' ' : ''
+        output.push( getBorderPaletteColor( tw, props.borderPalette, props.borderColor ) )
 
-        output += tw && tw?.bg?.palettes?.[props.bgPalette]?.colors?.[props.bgColor] ? 
-                    tw.bg.palettes[props.bgPalette].colors[props.bgColor] + ' ' : ''
+        output.push( getTextPaletteColor( tw, props.textPalette, props.textColor ) )
 
-        output += tw && tw?.border?.palettes?.[props.borderPalette]?.colors?.[props.borderColor] ? 
-                    tw.border.palettes[props.borderPalette].colors[props.borderColor] + ' ' : ''
-
-        return output.trim()
+        return output.join(' ')
         
     })
 
@@ -68,7 +64,7 @@
     <VueEl
         :tag="tag"
         :text="text"
-        :class="compoClasses"
+        :class="colorClasses"
     >
         <slot/>
     </VueEl>
