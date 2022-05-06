@@ -2,8 +2,8 @@
 
 	import { computed, inject } from 'vue'
     import { getBgPaletteColor, getBorderPaletteColor, getTextPaletteColor } from '@obewds/vue-component-helpers'
-	import { VueEl } from '@obewds/vue-el'
     import { ObewdsTwConfig } from '@obewds/obewds-tw-config'
+	import { VueEl } from '@obewds/vue-el'
 
     const props = defineProps({
         bgPalette: {
