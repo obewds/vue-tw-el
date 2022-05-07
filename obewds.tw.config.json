@@ -1,6 +1,9 @@
 {
-    "anchor": {},
+    "anchor": {
+        "base": ""
+    },
     "bg": {
+        "base": "",
         "palettes": {
             "console": {
                 "colors": {
@@ -41,6 +44,7 @@
         }
     },
     "border": {
+        "base": "",
         "palettes": {
             "default": {
                 "colors": {
@@ -55,6 +59,7 @@
         }
     },
     "text": {
+        "base": "",
         "palettes": {
             "default": {
                 "colors": {
