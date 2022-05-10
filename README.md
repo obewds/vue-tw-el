@@ -13,6 +13,8 @@ The @obewds/vue-tw-el modular design system component for Vue.js
 
 Check out the [official docs](https://obewds.github.io/vue-tw-el/) for this component for more details!
 
+Or check out the [CHANGELOG](https://github.com/obewds/vue-tw-el/blob/main/CHANGELOG.md) for the code base!
+
 <br>
 
 
