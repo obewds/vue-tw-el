@@ -78,8 +78,6 @@ test('VueTwEl.vue component accepts injects provided "tw" data', async () => {
 
 test('VueTwEl.vue component does not return classes with invalid props provided with "tw" data', async () => {
 
-    const testStr = 'test text'
-
     const wrapper = mount(VueTwEl, {
         global: {
             provide: {
@@ -101,8 +99,6 @@ test('VueTwEl.vue component does not return classes with invalid props provided 
 
 
 test('VueTwEl.vue component uses default tw classes if provided global "tw" data is empty', async () => {
-
-    const testStr = 'test text'
 
     const wrapper = mount(VueTwEl, {
         global: {

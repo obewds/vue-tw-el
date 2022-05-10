@@ -5,11 +5,44 @@
 
 <script setup lang="ts">
 
+    import { ref } from 'vue'
     import VueTwEl from '@/components/VueTwEl.vue'
 
     const tw = {
         span: 'px-2 py-1',
         flex: 'flex justify-center flex-wrap space-x-4 px-4 py-3',
+    }
+
+    const cycles = [
+        {
+            text: 'DEFAULT PALETTE',
+            bgPalette: 'default',
+            bgColor: 'primary',
+        },{
+            text: 'CONSOLE PALETTE',
+            bgPalette: 'console',
+            bgColor: 'primary',
+        },{
+            text: 'MONOCHROMATIC PALETTE',
+            bgPalette: 'monochromatic',
+            bgColor: 'primary',
+        },{
+            text: 'PASTEL PALETTE',
+            bgPalette: 'pastel',
+            bgColor: 'primary',
+        }
+    ]
+
+    const cycleIndex = ref(0)
+
+    function cycleBgPalettes (): void {
+        
+        if (cycleIndex.value === 3) {
+            cycleIndex.value = 0
+        } else {
+            cycleIndex.value++
+        }
+
     }
 
 </script>
@@ -20,6 +53,29 @@
     <div class="text-green-500 text-xs pb-1">WORKSPACE</div>
     
     <div class="bg-white text-center border-t-2 border-b-2 border-green-500 border-dashed py-24">
+
+        <div class="flex justify-center space-y-2 px-4 py-3">
+
+            <VueTwEl
+                tag="button"
+                type="button"
+                :text="cycles[cycleIndex].text"
+                :bg-palette="cycles[cycleIndex].bgPalette"
+                :bg-color="cycles[cycleIndex].bgColor"
+                class="border px-2 py-1 rounded"
+                border-color="default"
+                @click="cycleBgPalettes()"
+            />
+
+        </div>
+
+        <div class="flex flex-col justify-center space-y-2 px-4 py-3">
+
+            <VueTwEl tag="div" text="Should throw Vue warning for invalid bg palette prop" bg-palette="test"/>
+            <VueTwEl tag="div" text="Should throw Vue warning for invalid border palette prop" border-palette="default"/>
+            <VueTwEl tag="div" text="Should throw Vue warning for invalid text palette prop" text-palette="default"/>
+        
+        </div>
 
          <VueTwEl tag="div" text="VueTwEl's with a default bg palette"/>
 
