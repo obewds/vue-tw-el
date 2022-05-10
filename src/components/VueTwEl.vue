@@ -3,48 +3,33 @@
 	import { computed, inject } from 'vue'
     import { getBgPaletteColor, getBorderPaletteColor, getTextPaletteColor } from '@obewds/vue-component-helpers'
     import { ObewdsTwConfig } from '@obewds/obewds-tw-config'
-	import { VueEl } from '@obewds/vue-el'
+    import { VueEl } from '@obewds/vue-el'
 
-    const props = defineProps({
-        bgPalette: {
-            type: String,
-            default: 'default',
-        },
-        bgColor: {
-            type: String,
-            default: 'default',
-        },
-        borderPalette: {
-            type: String,
-            default: 'default',
-        },
-        borderColor: {
-            type: String,
-            default: '',
-        },
-        tag: {
-            type: String,
-            required: true,
-        },
-        text: {
-            type: String,
-            default: '',
-        },
-        textPalette: {
-            type: String,
-            default: 'default',
-        },
-        textColor: {
-            type: String,
-            default: 'default',
-        },
-    })
+    const props = withDefaults(
+        defineProps<{
+            bgPalette?: string
+            bgColor?: string
+            borderPalette?: string
+            borderColor?: string
+            tag: string
+            text?: string
+            textPalette?: string
+            textColor?: string
+        }>(), {
+            bgPalette: 'default',
+            bgColor: 'default',
+            borderPalette: 'default',
+            borderColor: '',
+            textPalette: 'default',
+            textColor: 'default',
+        }
+    )
 
     const tw = Object.keys( inject( 'tw', {} ) ).length > 0 ? inject<typeof ObewdsTwConfig>('tw') : ObewdsTwConfig
 
     let colorClasses = computed( () => {
 
-        let output = []
+        let output: string[] = []
 
         output.push( getBgPaletteColor( tw, props.bgPalette, props.bgColor ) )
 
