@@ -51,6 +51,11 @@
     "border": {
         "base": "",
         "palettes": {
+            "test": {
+                "colors": {
+                    "default": "border-yellow-500"
+                }
+            },
             "default": {
                 "colors": {
                     "": "",
@@ -66,6 +71,11 @@
     "text": {
         "base": "",
         "palettes": {
+            "test": {
+                "colors": {
+                    "default": "text-yellow-500"
+                }
+            },
             "default": {
                 "colors": {
                     "default": "",
