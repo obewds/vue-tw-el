@@ -45,7 +45,7 @@
     "@obewds/obewds-tw-config": "^0.6.1",
     "@obewds/vue-component-helpers": "^0.7.1",
     "@obewds/vue-el": "^1.4.0",
-    "vue": "^3.2.33"
+    "vue": "^3.2.36"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.2",
@@ -70,7 +70,7 @@
     "vite": "^2.9.8",
     "vitepress": "^0.22.4",
     "vitest": "^0.12.2",
-    "vue": "^3.2.33",
+    "vue": "^3.2.36",
     "vue-tsc": "^0.34.12"
   },
   "repository": {
