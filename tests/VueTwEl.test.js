@@ -112,6 +112,9 @@ test('VueTwEl.vue component uses default tw classes if provided global "tw" data
         },
     })
 
+    console.log('wrapper.html():')
+    console.log(wrapper.html())
+
     expect(wrapper.html()).toContain('bg-blue')
     
 })

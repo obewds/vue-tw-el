@@ -73,7 +73,7 @@
 
         </div>
 
-        <!--code>{{ $tw }}</!--code-->
+        <!--code>{{ $tw }}</code-->
 
         <div class="flex flex-col justify-center space-y-2 px-4 py-3">
 
@@ -82,8 +82,8 @@
             <VueTwEl tag="div" :text="testText('text')" text-palette="test"/>
         
         </div>
-
-         <VueTwEl tag="div" text="VueTwEl's with a default bg palette"/>
+        
+        <VueTwEl tag="div" text="VueTwEl's with a default bg palette"/>
 
         <div :class="tw.flex">
 

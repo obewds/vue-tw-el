@@ -2,8 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/index.css'
 
-// import { mergeAppConfigWithDefaults } from '@obewds/vue-component-helpers'
-// import appTwConfig from '../obewds.tw.config.json'
+import { mergeAppConfigWithDefaults } from '@obewds/vue-component-helpers'
+import appTwConfig from '../obewds.tw.config.json'
 
 
 
@@ -11,11 +11,11 @@ import './assets/index.css'
 
 const app = createApp(App)
 
-// const tw = mergeAppConfigWithDefaults(appTwConfig)
+//const tw = mergeAppConfigWithDefaults(appTwConfig)
 
 // app.config.globalProperties.$tw = tw
 
-// app.provide('tw', tw)
+//app.provide('tw', tw)
 
 
 
