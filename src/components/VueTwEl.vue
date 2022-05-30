@@ -69,12 +69,6 @@
     import { VueEl } from '@obewds/vue-el'
 
 
-    // import { getAppObewdsTw } from '../composable'
-    // const test = getCurrentInstance()?.appContext.config.globalProperties.$tw || {}
-    // console.log('test:')
-    // console.log(test)
-
-
     import appTwConfig from '../../obewds.tw.config.json'
     const testTw = mergeAppConfigWithDefaults(appTwConfig)
     console.log('testTw:')
