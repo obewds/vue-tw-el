@@ -45,6 +45,10 @@
 
     }
 
+    function testText (configKey: string): string {
+        return 'Should not throw Vue warning for invalid ' + configKey + ' palette prop if the ./obewds.tw.config.json file is found in the root project directory.'
+    }
+
 </script>
 
 
@@ -69,15 +73,17 @@
 
         </div>
 
+        <!--code>{{ $tw }}</code-->
+
         <div class="flex flex-col justify-center space-y-2 px-4 py-3">
 
-            <VueTwEl tag="div" text="Should throw Vue warning for invalid bg palette prop" bg-palette="test"/>
-            <VueTwEl tag="div" text="Should throw Vue warning for invalid border palette prop" border-palette="default"/>
-            <VueTwEl tag="div" text="Should throw Vue warning for invalid text palette prop" text-palette="default"/>
+            <VueTwEl tag="div" :text="testText('bg')" bg-palette="test"/>
+            <VueTwEl tag="div" :text="testText('border')" border-palette="test" class="border"/>
+            <VueTwEl tag="div" :text="testText('text')" text-palette="test"/>
         
         </div>
-
-         <VueTwEl tag="div" text="VueTwEl's with a default bg palette"/>
+        
+        <VueTwEl tag="div" text="VueTwEl's with a default bg palette"/>
 
         <div :class="tw.flex">
 

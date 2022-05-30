@@ -99,7 +99,7 @@ Dealing with the `obewds.tw.config.json` file is detailed in the [App Config Set
 
 :white_check_mark: Type `String`  
 :x: Not Required  
-:white_check_mark: Validates
+:x: Does Not Validate
 
 ```html{2}
 <template>
@@ -113,7 +113,7 @@ Dealing with the `obewds.tw.config.json` file is detailed in the [App Config Set
 
 :white_check_mark: Type `String`  
 :x: Not Required  
-:white_check_mark: Validates
+:x: Does Not Validate
 
 ```html{2}
 <template>
@@ -127,7 +127,7 @@ Dealing with the `obewds.tw.config.json` file is detailed in the [App Config Set
 
 :white_check_mark: Type `String`  
 :x: Not Required  
-:white_check_mark: Validates
+:x: Does Not Validate
 
 ```html{2}
 <template>
@@ -141,7 +141,7 @@ Dealing with the `obewds.tw.config.json` file is detailed in the [App Config Set
 
 :white_check_mark: Type `String`  
 :x: Not Required  
-:white_check_mark: Validates
+:x: Does Not Validate
 
 ```html{2}
 <template>
@@ -167,7 +167,7 @@ Detailed in the [@obewds/vue-el](https://obewds.github.io/vue-el/#text) docs.
 
 :white_check_mark: Type `String`  
 :x: Not Required  
-:white_check_mark: Validates
+:x: Does Not Validate
 
 ```html{2}
 <template>
@@ -181,7 +181,7 @@ Detailed in the [@obewds/vue-el](https://obewds.github.io/vue-el/#text) docs.
 
 :white_check_mark: Type `String`  
 :x: Not Required  
-:white_check_mark: Validates
+:x: Does Not Validate
 
 ```html{2}
 <template>

@@ -5,11 +5,31 @@ import './assets/index.css'
 import { mergeAppConfigWithDefaults } from '@obewds/vue-component-helpers'
 import appTwConfig from '../obewds.tw.config.json'
 
+
+
+
+
 const app = createApp(App)
 
-const tw = mergeAppConfigWithDefaults(appTwConfig)
+//const tw = mergeAppConfigWithDefaults(appTwConfig)
 
-app.provide('tw', tw)
+// app.config.globalProperties.$tw = tw
+
+//app.provide('tw', tw)
+
+
+
+
+
+
+// app.use(ObewdsTwPlugin, {
+//     tw: tw
+// })
+
+
+
+
+
 
 app.provide('globals', {
     classes: {
