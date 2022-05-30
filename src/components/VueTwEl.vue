@@ -69,13 +69,6 @@
     import { VueEl } from '@obewds/vue-el'
 
 
-    // import fetchedOutput from '../fetch'
-    // console.log("fetchedOutput:")
-    // console.log(fetchedOutput)
-    // console.log("validPaletteProps('bg', fetchedOutput):")
-    // console.log(validPaletteProps('bg', fetchedOutput))
-
-
     // import { getAppObewdsTw } from '../composable'
     // const test = getCurrentInstance()?.appContext.config.globalProperties.$tw || {}
     // console.log('test:')
@@ -99,8 +92,6 @@
                 type: String,
                 default: 'default',
                 validator: (prop: string) => ([
-                    // ...validPaletteProps('bg', ObewdsTwConfig),
-                    // ...validPaletteProps('bg', fetchedOutput)
                     ...validPaletteProps('bg', testTw)
                 ]).includes(prop),
             },
@@ -112,8 +103,6 @@
                 type: String,
                 default: 'default',
                 validator: (prop: string) => ([
-                    // ...validPaletteProps('border', ObewdsTwConfig),
-                    // ...validPaletteProps('border', fetchedOutput)
                     ...validPaletteProps('border', testTw)
                 ]).includes(prop),
             },
@@ -133,8 +122,6 @@
                 type: String,
                 default: 'default',
                 validator: (prop: string) => ([
-                    // ...validPaletteProps('text', ObewdsTwConfig),
-                    // ...validPaletteProps('text', fetchedOutput)
                     ...validPaletteProps('text', testTw)
                 ]).includes(prop),
             },
@@ -146,7 +133,6 @@
 
         setup ( props, context ) {
 
-            // const instance = getCurrentInstance()
             const tw = getCurrentInstance()?.appContext.config.globalProperties?.$tw || ObewdsTwConfig
 
             // const test = validPaletteProps('bg', tw)

@@ -8,11 +8,6 @@ import './assets/index.css'
 
 
 
-// import { ObewdsTwPlugin } from './plugin'
-
-
-
-
 
 const app = createApp(App)
 
