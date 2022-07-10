@@ -3,7 +3,7 @@ import { getBgPaletteColor, getBorderPaletteColor, getTextPaletteColor } from "@
 import { ObewdsTwConfig } from "@obewds/obewds-tw-config";
 import { VueEl } from "@obewds/vue-el";
 const _sfc_main = /* @__PURE__ */ defineComponent({
-  name: "VueTwEl",
+  __name: "VueTwEl",
   props: {
     bgPalette: { default: "default" },
     bgColor: { default: "default" },
