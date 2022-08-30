@@ -55,7 +55,7 @@ declare const _default: {
             borderColor: string;
             textPalette: string;
             textColor: string;
-        }>>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
+        }>>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
             bgPalette: string;
             bgColor: string;
             borderPalette: string;
@@ -118,7 +118,7 @@ declare const _default: {
     borderColor: string;
     textPalette: string;
     textColor: string;
-}>>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
+}>>>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, {
     bgPalette: string;
     bgColor: string;
     borderPalette: string;
