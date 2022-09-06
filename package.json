@@ -1,7 +1,7 @@
 {
   "name": "@obewds/vue-tw-el",
   "description": "The @obewds/vue-tw-el modular design system component for Vue.js",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "author": "@oberocks",
   "homepage": "https://obewds.github.io/vue-tw-el/",
   "license": "MIT",
@@ -68,7 +68,7 @@
     "vitepress": "^1.0.0-alpha.13",
     "vitest": "^0.23.1",
     "vue": "^3.2.38",
-    "vue-tsc": "^0.40.8"
+    "vue-tsc": "^0.40.9"
   },
   "repository": {
     "type": "git",
